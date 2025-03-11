@@ -28,15 +28,15 @@ namespace TCPServer
                 while (isRunning)
                 {
                     Console.WriteLine("Skriv command: Random, Add Eller Subtract.");
-                    string command = Console.ReadLine();
-                    writer.WriteLine(command);
+                    string cmd = Console.ReadLine();
+                    writer.WriteLine(cmd);
 
-                    if (command == "close")
+                    if (cmd == "close")
                     {
                         isRunning = false;
                     }
 
-                    else if (command == "Random" || command == "Add" || command == "Subtract")
+                    else if (cmd == "Random" || cmd == "Add" || cmd == "Subtract")
                     {
                         Console.WriteLine(reader.ReadLine());
                         

@@ -29,18 +29,18 @@ namespace TCPServer
                 while (isRunning)
                 {
                     Console.WriteLine("Skriv command: Random, Add Eller Subtract.");
-                    string command = Console.ReadLine();
+                    string cmd = Console.ReadLine();
 
-                    if (command == "close")
+                    if (cmd == "close")
                     {
                         isRunning = false;
                     }
 
-                    else if (command == "Random" || command == "Add" || command == "Subtract")
+                    else if (cmd == "Random" || cmd == "Add" || cmd == "Subtract")
                     {
                         Console.WriteLine("Skrive to numbers. The numbers skal væle seperated by space");
                         string[] numbers = Console.ReadLine().Split(' ');
-                        var request = new { Method = command, Tal1 = int.Parse(numbers[0]), Tal2 = int.Parse(numbers[1]) };
+                        var request = new { Method = cmd, Tal1 = int.Parse(numbers[0]), Tal2 = int.Parse(numbers[1]) };
                         string jsonRequest = JsonSerializer.Serialize(request);
                         writer.WriteLine(jsonRequest);
                         string response = reader.ReadLine();

@@ -25,11 +25,12 @@ namespace TCPServerClient
                 string? jsonMessage = reader.ReadLine();
                 if (jsonMessage == null) return;
 
-                // Deserialiser JSON-indholdet
+                // Deserialiser JSON-indholdet af radom add og subtract
                 var request = JsonSerializer.Deserialize<Request>(jsonMessage);
 
                 switch (request?.Method)
                 {
+                  
                     case "Random":
                         Random random = new Random();
                         string response = $"{random.Next(request.Tal1, request.Tal2)}";
@@ -55,7 +56,7 @@ namespace TCPServerClient
         }
     }
 
-    // JSON-struktur til forespørgsler
+    
     public class Request
     {
         public string Method { get; set; }
